@@ -2,7 +2,7 @@
 
 A two part system built to load balance task between multiple servers (workers).
 
-** This was built as a course work and is not practical or efficient solution **
+**This was built as a course work and is not practical or efficient solution**
 
 ## System Client
 
