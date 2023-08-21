@@ -8,6 +8,7 @@
     <NuxtLink
       class="rounded-lg bg-contessa-700 p-2 font-sans text-xs font-bold uppercase text-white shadow-md shadow-contessa-700/20 transition-all hover:shadow-lg hover:shadow-contessa-700/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       to="https://github.com/kyng-cytro/distributed-task-processing-system"
+      target="_blank"
     >
       <svg
         class="w-5 h-5 fill-current"
