@@ -22,7 +22,7 @@ also servers as worker status check and a load balancer
 
 ## System Worker
 
-This is basically and express server that has two end points `/ - to get status` & `/transfom to upload and convert` **CSV** files to **JSON**
+An express server that has two end points `/ - to get status` & `/transfom to upload and convert` **CSV** files to **JSON**
 
 ### Environment Variables
 
