@@ -68,6 +68,13 @@ onMounted(() => {
             :status="worker.status"
             :up-time="worker.uptime"
             :job="worker.job"
+            :sim="
+              workerController.simulated_downs.value.some(
+                (item) => item.name === worker.name,
+              )
+            "
+            @simulate-down="workerController.simulateDown(worker)"
+            @bring-up="workerController.bringUp(worker)"
             v-for="worker in workers"
           />
         </div>

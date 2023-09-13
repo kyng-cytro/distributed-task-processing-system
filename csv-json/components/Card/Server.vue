@@ -6,20 +6,21 @@ defineProps({
   endPoint: String,
   status: String,
   upTime: Number,
+  sim: Boolean,
 });
 </script>
 <template>
   <div
-    class="max-w-sm rounded-xl bg-contessa-100 shadow-lg shadow-contessa-800 w-full"
+    class="h-80 max-w-sm rounded-xl bg-contessa-100 shadow-lg shadow-contessa-800 w-full p-6 flex flex-col justify-between gap-8"
   >
-    <div class="p-6">
-      <p class="mb-4 text-base text-neutral-600">Worker Name: {{ name }}</p>
-      <p class="mb-4 text-base text-neutral-600">Worker Job: {{ job }}</p>
-      <p class="mb-4 text-base text-neutral-600">
+    <div class="flex flex-col gap-4 text-base text-neutral-600">
+      <p>Worker Name: {{ name }}</p>
+      <p>Worker Job: {{ job }}</p>
+      <p>
         End Point:
         <NuxtLink :to="endPoint" target="_blank">{{ name }}-worker</NuxtLink>
       </p>
-      <p class="mb-4 text-base text-neutral-600">
+      <p>
         Worker Status:
         <span
           :class="{
@@ -31,23 +32,22 @@ defineProps({
           >{{ status }}</span
         >
       </p>
-      <p class="mb-8 text-base text-neutral-600">
-        Worker Uptime: {{ formartter.formatUptime(upTime ?? 0) }}
-      </p>
-      <div class="flex gap-3">
-        <button
-          type="button"
-          class="inline-block rounded bg-contessa-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out hover:bg-contessa-600"
-        >
-          restart worker
-        </button>
-        <button
-          type="button"
-          class="inline-block rounded bg-contessa-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out hover:bg-contessa-600"
-        >
-          Simulate Down
-        </button>
-      </div>
+      <p>Worker Uptime: {{ formartter.formatUptime(upTime ?? 0) }}</p>
+    </div>
+    <div class="flex gap-3">
+      <button
+        type="button"
+        class="inline-block rounded bg-contessa-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out hover:bg-contessa-600"
+      >
+        Restart Worker
+      </button>
+      <button
+        @click="$emit(sim ? 'bring-up' : 'simulate-down')"
+        type="button"
+        class="inline-block rounded bg-contessa-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out hover:bg-contessa-600"
+      >
+        {{ sim ? "Bring Up" : "Simulate Down" }}
+      </button>
     </div>
   </div>
 </template>
