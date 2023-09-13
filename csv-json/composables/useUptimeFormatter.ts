@@ -7,21 +7,15 @@ export default function () {
     const hours = Math.floor((uptimeInSeconds / 3600) % 24);
     const days = Math.floor(uptimeInSeconds / 86400);
 
-    const formattedUptime = [];
     if (days > 0) {
-      formattedUptime.push(`${days} days`);
+      return `${days}d ${hours}h`;
+    } else if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    } else if (minutes > 0) {
+      return `${minutes}m ${seconds}s`;
+    } else {
+      return `${seconds}secs`;
     }
-    if (hours > 0) {
-      formattedUptime.push(`${hours} hrs`);
-    }
-    if (minutes > 0) {
-      formattedUptime.push(`${minutes} mins`);
-    }
-    if (seconds > 0) {
-      formattedUptime.push(`${seconds} secs`);
-    }
-
-    return formattedUptime.join(", ");
   };
 
   return {
